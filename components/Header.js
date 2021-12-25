@@ -1,17 +1,17 @@
 import Head from 'next/head'
-import Appbar from '../components/appbar'
-import React from "react";
-import {makeStyles} from "@material-ui/core/styles";
+import React, {useState} from "react";
 
-const useStyles = makeStyles((theme) => ({
- 
-
-}));
-export default function Home(props) {
-    const classes = useStyles();
+export default function Header(props) {
+    const {children,plus} = props
+    const [name,setName] = useState('farzam')
     return (
-        <div>
-
-        </div>
+        <nav>
+            <div>
+                {children + " " + plus}
+            </div>
+            <button onClick={()=>setName(name==='farzam'?'kimia':'farzam')}>
+                {name}
+            </button>
+        </nav>
     )
 }
